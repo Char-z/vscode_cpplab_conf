@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (Debug)",
+            "type": "shell",
+			"command": "g++",
+			"args": [
+				"-g",
+				"${fileBasename}",
+				"-o",
+				"${fileBasenameNoExtension}.exe"
+			],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+			},
+			"group": "build"
+		},
+        {
+            "label": "Build (Release)",
+            "type": "shell",
+			"command": "g++",
+			"args": [
+				"${fileBasename}",
+				"-o",
+				"${fileBasenameNoExtension}.exe"
+			],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Run",
+			"type": "shell",
+			"command": "./${fileBasenameNoExtension}.exe",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": true
+			},
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		}
+    ]
+}
